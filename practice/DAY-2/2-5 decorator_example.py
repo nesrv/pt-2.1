@@ -1,38 +1,28 @@
 # Декораторы функций
-
+import time
+from math import factorial
 user = 'admin'
-superuser = 'superadmin123'
 
-def super_access(func):
-    def wrapper():
-        if superuser == 'superadmin':
-            return func()
-        else:
-            print("нет доступа")
+
+def test_time(func):
+    def wrapper(*args):
+        st = time.time()
+        res = func(*args)
+        dt = time.time()
+        print(dt - st)
+        return res
     return wrapper
 
-def access(func):
-    def wrapper():
-        if user == 'admin':
-            return func()
-        else:
-            print("нет доступа")
-    return wrapper
+@test_time
+def fib(n):
+    n1, n2 = 1, 1
+    for i in range(2, n):
+        n1, n2 = n2, n1 + n2
+    return n2
 
-@super_access
-@access
-def read_db():
-    print("reading data base")
+@test_time
+def some_func():
+    return factorial(10**3)
 
-@access
-def change_db():
-    print("change data base")
-
-@access
-def clean_vacuum_db():
-    print("vacuum data base")
-
-
-read_db()
-change_db()
-clean_vacuum_db()
+print(fib(20_000))
+print(some_func())
