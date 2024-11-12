@@ -48,14 +48,14 @@ def get_list():
 
 # Бесконечный генератор последовательности Фиббоначи
 
-def gen_fib():
+def gen_fib(N):
     a, b = 1, 1
-    while True:
+    for _ in range(N):
         yield a
         a, b = b, a + b
 
 
-f = gen_fib()
+f = gen_fib(10)
 while True:
     print(next(f))
     time.sleep(1)
