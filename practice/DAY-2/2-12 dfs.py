@@ -1,3 +1,5 @@
+# DFS - поиск в глубину
+
 graph = {
     1: {2, 3, 4},
     2: {1, 6, 7},
@@ -18,7 +20,8 @@ def dfs(v):
     for w in graph[v]:
         if not visited[w]:  # посещён ли текущий сосед?
             dfs(w)
-
 dfs(1)
 
 print(visited[1:])
+
+
