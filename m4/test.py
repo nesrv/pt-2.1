@@ -12,8 +12,18 @@ for row in reader:
     setattr(Dictionary, name, value)
     
 
-print(Dictionary.__dict__)
-print(getattr(Dictionary, 'rus'))
+# print(Dictionary.__dict__)
+# print(getattr(Dictionary, 'rus'))
     
-   
+class Programmer:
+    ...   
     
+import json
+f = open('m4/attr.json', encoding='utf-8')
+data = json.load(f)
+
+for key, value in data.items():
+    setattr(Programmer, key, value)
+    
+print(Programmer.__dict__)
+
