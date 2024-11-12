@@ -58,3 +58,5 @@ N =int(input())
 f = gen_mail(N)
 
 print(*next(f))
+
+
