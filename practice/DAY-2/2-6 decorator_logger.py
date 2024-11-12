@@ -1,6 +1,6 @@
 from json import dumps, loads
 from time import asctime
-f = open('log.txt', 'a', encoding='utf-8')
+f = open('log.txt', 'w', encoding='utf-8')
 
 def logger(func):
     def wrapper(*args, **kwargs):
@@ -21,4 +21,11 @@ def add_numbers(a, b):
     return a + b
 
 
+@logger
+def mul_numbers(a, b):
+    return a * b
+
+
+
 print(add_numbers(1,1))
+print(mul_numbers(1,1))
