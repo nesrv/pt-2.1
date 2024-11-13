@@ -25,15 +25,18 @@ def palindrom_3(string):
     return True
 
 
-start_time = timeit.default_timer()
-for _ in range(10**5):
-    palindrom_1('шалаш')
+# start_time = timeit.default_timer()
+# for _ in range(10**5):
+#     palindrom_1('шалаш')
+#
+# print(timeit.default_timer() - start_time)
 
-print(timeit.default_timer() - start_time)
-
-dt = timeit.Timer("palindrom_1('шалаш')", "from __main__ import palindrom_1")
+dt = timeit.Timer("palindrom_1('шалашшалашшалашшалаш')", "from __main__ import palindrom_1")
 print(dt.timeit(10**5))
 
-print(palindrom_2('шалаш'))
-print(palindrom_3('шалаш'))
+dt = timeit.Timer("palindrom_2('шалашшалашшалашшалаш')", "from __main__ import palindrom_2")
+print(dt.timeit(10**5))
+
+dt = timeit.Timer("palindrom_3('шалашшалашшалашшалаш')", "from __main__ import palindrom_3")
+print(dt.timeit(10**5))
 
