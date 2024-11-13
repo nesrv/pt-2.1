@@ -109,8 +109,8 @@ points = []
 # print(points[1].__dict__)
 
 cnt = 20
-cnt*=2
-example = (Point(*val) for val in enumerate(range(1, cnt+1, 2), 1))
+cnt *= 2
+example = (Point(*val) for val in enumerate(range(1, cnt + 1, 2), 1))
 
 print(next(example))
 print(next(example))
