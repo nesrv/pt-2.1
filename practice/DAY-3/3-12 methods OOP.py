@@ -1,29 +1,30 @@
+# конструктор (инициализатор) инстанс
+# __init__ магический (dunder) метод
+
 class Point:
-    'Класс точка'
-    __color = 'red'
-    __circle = 2
+    color = 'red'
+    circle = 2
+
+    def __init__(self, x=0, y=0):
+        print('сработал конструктор')
+        self.x = x
+        self.y = y
 
     def __str__(self):
-        return "объект класса Point"
+        return f'Я точка ({self.x}, {self.y})'
 
-    def set_color(self, color):
-        self.__color = color
-
-        # return ("Вызов метода set_color", str(self))
-
-    def get_color(self):
-        return self.__color
+    def __del__(self):
+        print ('сработал финализатор')
 
 
+p1 = Point(1,2)
+print(p1.__dict__)
 
-# print(Point.__dict__)
-# print(Point.__doc__)
+p2 = Point()
+print(p2.__dict__)
 
-p1 = Point()
+print(p1)
 
-# print(p1)
-p1.set_color('green')
-# print(p1.color)
-print(p1.get_color())
-# print(Point.set_color(Point, 'green'))
-# print(Point.color)
+p2.z = 100
+print(p2.__dict__)
+
