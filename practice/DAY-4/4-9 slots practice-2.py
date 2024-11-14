@@ -23,6 +23,9 @@ print(text)
 
 p1 = Person('Рахманинов', 50, 'пианист')
 print(p1.__slots__)
+
 persons = [Person(*row.split(', ')) for row in text]
 
 print(persons)
+
+print(sorted(persons))
