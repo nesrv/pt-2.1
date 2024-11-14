@@ -1,3 +1,5 @@
+
+
 class Lamp:
     brand = "Эра"
     count = 0
@@ -7,7 +9,6 @@ class Lamp:
         self.__floor = floor
         Lamp.count+=1
         print(f'Создана лампочка № {Lamp.count} {Lamp.brand} на {floor} этаже ')
-
 
     def switch_on(self):
         if self.__state == False:
@@ -28,26 +29,34 @@ class Lamp:
     def set_floor(self, floor):
          self.__floor = floor
 
+
     floor = property(get_floor, set_floor)
+
+    @property
+    def state(self): #геттер
+        return self.__state
+
+    @state.setter
+    def state(self, state):
+         self.__state = state
+
 
 lamp1 = Lamp(1)
 lamp2 = Lamp(5)
 lamp3 = Lamp(15)
 
 
-lamp1.switch_on()
-lamp1.switch_on()
+lamp1.state = True
+print (lamp1.state) # геттер
+print(lamp2.__dict__['_Lamp__floor'])
 
-lamp1.switch_off()
-lamp1.switch_off()
-lamp1.switch_off()
 
-print(lamp1.__dict__)
-print(lamp1)
-print(lamp2)
+def func():
+    return 123
 
-lst = [lamp1, lamp2]
+func.setter = 567
+setattr(func, 'atr', "мир сошел с ума")
 
-lamp1.floor = 10 # сеттер
-print (lamp1.floor) # геттер
+print(func.setter)
+print(func.atr)
 
