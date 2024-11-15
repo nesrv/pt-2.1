@@ -2,12 +2,26 @@
 
 # Домовая книга, загс, регистрация граждан
 
+class RegistrationPairs:
+    
+    def __init__(self, men, women):
+        if isinstance(men, Human) and isinstance(women, Human):
+            men.status = women
+            women.status = men
+        
+    def __mul__(self, partner):
+        if self.status == partner:
+            return Human("Ваня", 'м')
+        else:
+            raise Exception("Вы не в браке. Детей делать нельзя")    
 
 class Human:
     def __init__(self, name, sex):
         self.name = name
         self.sex = sex.upper()
         self.status = None
+        self.children = []
+        
 
     def __repr__(self):
         return f'{self.name} '
@@ -38,18 +52,10 @@ class Human:
 
 ivan = Human('Иван', 'm')
 anna = Human('Анна', 'w')
-elena = Human('Елена', 'w')
 
+pairs = RegistrationPairs(ivan, anna)
 
-ivan + anna
-user = ivan * anna
 
 print(ivan, ivan.status)
 print(anna, anna.status)
 
-print(user)
-
-ivan - anna
-
-print(ivan, ivan.status)
-print(anna, anna.status)
